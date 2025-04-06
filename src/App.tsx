@@ -81,9 +81,9 @@ export const App: React.FC = () => {
         <Row justify={"center"} align={"top"}>
             <Col xs={24} sm={24} md={20} lg={16} xl={12}>
                 <Card>
-                    <Title level={2} style={{textAlign: "center"}}>P2P File Transfer</Title>
+                    <Title level={2} style={{textAlign: "center"}}>ShareMe</Title>
                         <Card hidden={peer.started}>
-                            <Button onClick={handleStartSession} loading={peer.loading}>Start</Button>
+                            <Button onClick={handleStartSession} loading={peer.loading}>Iniciar</Button>
                         </Card>
                         <Card hidden={!peer.started}>
                             <Space direction="horizontal">
@@ -92,7 +92,7 @@ export const App: React.FC = () => {
                                     await navigator.clipboard.writeText(peer.id || "")
                                     message.info("Copied: " + peer.id)
                                 }}/>
-                                <Button danger onClick={handleStopSession}>Stop</Button>
+                                <Button danger onClick={handleStopSession}>Parar</Button>
                             </Space>
                         </Card>
                         <div hidden={!peer.started}>
@@ -103,11 +103,11 @@ export const App: React.FC = () => {
                                            required={true}
                                            />
                                     <Button onClick={handleConnectOtherPeer}
-                                            loading={connection.loading}>Connect</Button>
+                                            loading={connection.loading}>Conectar</Button>
                                 </Space>
                             </Card>
 
-                            <Card title="Connection">
+                            <Card title="Conexao">
                                 {
                                     connection.list.length === 0
                                         ? <div>Waiting for connection ...</div>
@@ -120,7 +120,7 @@ export const App: React.FC = () => {
                                 }
 
                             </Card>
-                            <Card title="Send File">
+                            <Card title="Enviar Ficheiro">
                                 <Upload fileList={fileList}
                                         maxCount={1}
                                         onRemove={() => setFileList([])}
@@ -128,7 +128,7 @@ export const App: React.FC = () => {
                                             setFileList([file])
                                             return false
                                         }}>
-                                    <Button icon={<UploadOutlined/>}>Select File</Button>
+                                    <Button icon={<UploadOutlined/>}>Escolher ficheiro</Button>
                                 </Upload>
                                 <Button
                                     type="primary"
@@ -137,7 +137,7 @@ export const App: React.FC = () => {
                                     loading={sendLoading}
                                     style={{marginTop: 16}}
                                 >
-                                    {sendLoading ? 'Sending' : 'Send'}
+                                    {sendLoading ? 'Enviando' : 'Enviar'}
                                 </Button>
                             </Card>
                         </div>
